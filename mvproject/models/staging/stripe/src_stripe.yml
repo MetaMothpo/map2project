@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: stripe
+    database: postgres
+    schema: stripe
+    tables:
+      - name: stripe_payment
+      
