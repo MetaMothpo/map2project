@@ -14,10 +14,10 @@ sources:
               - not_null
 
       - name: orders
-        description: "Order information"
+        description: "Customer order id"
         columns:
-          - name: num_of_orders
-            description: "number of orders done by customer"
+          - name: id
+            description: "Unique order number"
             tests:
               - unique
               - not_null
