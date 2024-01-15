@@ -1,0 +1,30 @@
+models:
+  - name: customers_number_of_orders
+    description: 'Numbers of orders per customers'
+    columns:
+      - name: customer_id
+        description: 'Customer identity'
+        tests:
+          - not_null
+          - unique
+      - name: num_of_orders
+        description: 'Number of orders per customer'
+        tests:
+          - assert_num_of_orders_greater_than_five
+
+  - name: dim_customers
+    description: 'Completed orders for customers'
+    columns:
+      - name: customer_id
+        description: 'The unique identifier of the customer'
+        tests:
+          - not_null
+
+  - name: orders
+    description: 'Details of individual orders'
+    columns:
+      - name: order_id
+        description: 'Order ID'
+        tests:
+          - not_null
+          - unique

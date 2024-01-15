@@ -1,9 +1,23 @@
 version: 2
-
 sources:
   - name: jaffle_shop
     database: postgres
     schema: jaffle_shop
     tables:
       - name: customers
+        description: "Customer information"
+        columns:
+          - name: customer_id
+            description: "Primary key for this table"
+            tests:
+              - unique
+              - not_null
+
       - name: orders
+        description: "Order information"
+        columns:
+          - name: num_of_orders
+            description: "number of orders done by customer"
+            tests:
+              - unique
+              - not_null

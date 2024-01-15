@@ -34,6 +34,10 @@ final as(
 		
 	from customers
 	left join customers_orders on customers.customer_id = customers_orders.customer_id
+
+
+
+
 	
 		
 )
