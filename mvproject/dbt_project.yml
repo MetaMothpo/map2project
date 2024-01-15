@@ -36,6 +36,18 @@ models:
     marts:
       core:
         +materialized: table
-    staging:
-      +materialized: view
+        unique_key: customer_id
+      description: 'Identify the customer'
+
+      Events_files:
+        enabled: true
+        +config:
+          +materialized: incremental
+          unique_key: customer_id
+        description: 'Identify the customer'
+
+      staging:
+        +materialized: table
+
+
 
