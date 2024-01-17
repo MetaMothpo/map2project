@@ -7,16 +7,21 @@ models:
         tests:
           - not_null
           - unique
-      - name: first_name
-        description: 'Customer first name'
-        tests:
-          - not null
+
+
 
   - name: dim_customers
     description: 'Completed orders for customers'
     columns:
       - name: customer_id
         description: 'The unique identifier of the customer'
+        tests:
+          - not_null
+
+
+    columns:
+      - name: number_of_orders
+        description: "number of orders done by customer"
         tests:
           - not_null
 
@@ -34,10 +39,3 @@ models:
         tests: 
          - assert_num_of_orders_greater_than_five
 
-      - name: dim_customers
-        description: "Order information"
-        columns:
-          - name: number_of_orders
-            description: "number of orders done by customer"
-            tests:
-              - not_null

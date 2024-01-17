@@ -35,6 +35,11 @@ final as(
 	from customers
 	left join customers_orders on customers.customer_id = customers_orders.customer_id
 
+	
+	{% if target.name == 'prod' %}
+	where number_of_orders IS NOT NULL AND recent_order_date IS NOT NULL
+	
+	{% endif %}
 
 
 

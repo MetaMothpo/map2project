@@ -1,6 +1,5 @@
-with 
-source as (
-	select * from {{source('jaffle_shop', 'orders')}}
+with source as (
+    select * from {{ db_orders_source('jaffle_shop', 'orders') }}
 ),
 
 stagged as(
@@ -11,6 +10,6 @@ stagged as(
 		user_id as customer_id,
 		order_date,
 		status as orders_status
-	from jaffle_shop.orders
+	from source
 )
 select * from stagged

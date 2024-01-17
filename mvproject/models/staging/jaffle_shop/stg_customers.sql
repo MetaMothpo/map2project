@@ -1,18 +1,15 @@
+-- models/staging/jaffle_shop_staging.sql
 
-with
-
-source as (
-	select * from {{source('jaffle_shop', 'customers')}}
+with source as (
+    select * from {{ db_source('jaffle_shop', 'customers') }}
 ),
 
 stagged as (
-
-
-	select 
-		customer_id as customer_id,
-		first_name,
-		last_name
-	from jaffle_shop.customers
-	
+    select 
+        customer_id,
+        first_name,
+        last_name
+    from source
 )
+
 select * from stagged

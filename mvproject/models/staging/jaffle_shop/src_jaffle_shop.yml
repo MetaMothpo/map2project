@@ -1,7 +1,8 @@
 version: 2
+version: 2
 sources:
   - name: jaffle_shop
-    database: postgres
+    database: "{% if target.name == 'dev' %}postgres{% elif target.name == 'prod' %}dev_database{% else %}invalid_database{% endif %}"
     schema: jaffle_shop
     tables:
       - name: customers
@@ -21,3 +22,17 @@ sources:
             tests:
               - unique
               - not_null
+
+  - name: dev_jaffle_shop                       
+    database: dev_database
+    schema: dev_jaffle_shop
+    tables:
+      - name: dev_customers
+        description: 'dev customer information'
+      - name: dev_orders
+        description: 'dev customer order id'
+
+
+    
+
+    
